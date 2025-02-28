@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Portafolio</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav main-nav">
+        <ul class="main-nav__list main-list">
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#home">Casa</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#about">Informacion</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#skills">Mis Habilidades</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#networks">Redes</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <!-- Vista previa -->
+      <section class="main__home home" id="home">
+        <h1 class="home__title">Branly Gomez Peña</h1>
+        <p class="home__subtitle">Un Desarrollador Wed de Python Pro</p>
+      </section>
+      <!-- Acerca de mí -->
+      <section class="main__about about" id="about">
+        <h2 class="about__title">Informacion Sobre Mi</h2>
+        <div class="about__info info-block">
+          <p class="info-block__text">
+           Bueno soy un estudiante tengo casi 2 año estudiando python eh apredido mucho. 
+           cuando conoci la programacion era algo tan increibre con 
+           los proyectos muy buenos y quiero conocer mas de otro programas 
+          </p>
+          <img
+            class="info-block__img"
+            src="../static/img/profile.png"
+            alt="me"
+            width="250"
+            height="250"
+          />
+        </div>
+      </section>
+      <!-- Sección de competencias -->
+      <section class="main__skills skills" id="skills">
+        <h2 class="skills__title">Habilidades</h2>
+        <form action="/" method="POST">
+          <ul class="skills__list skills-list">
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/python.png"
+                alt="python"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Habilidade info</span>
+              <input class="skill__button" type="submit" name="button_python" value="SHOW PROJECT">
+            </li>
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/discord.png"
+                alt="discord"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Habilidade Info</span>
+              <input class="skill__button" type="submit" name="button_discord" value="SHOW PROJECT">
+            </li>
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/html.png"
+                alt="html"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Habilidade Info</span>
+              <input class="skill__button" type="submit" name="button_html" value="SHOW PROJECT">
+            </li>
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/db.webp"
+                alt="SQL"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Habilidade Info</span>
+              <input class="skill__button" type="submit" name="button_db" value="SHOW PROJECT">
+            </li>
+          </ul>
+        </form>
+        {% if button_python%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/python-project.png" alt="project" width="500">
+              <a class="project__link" href="https://github.com/branly211/proyecto-1.git">Link en GitHub</a>
+          </div>
+        {% endif %}
+        
+        {% if button_discord%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/Captura.png" alt="project" width="500">
+              <a class="project__link" href="https://github.com/branly211/proyecto-1.git">Link en GitHub</a>
+          </div>
+        {% endif %}
+
+        {% if button_html%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/meme1.png" alt="project" width="500">
+              <a class="project__link" href="https://github.com/branly211/proyecto-1.git">Link en GitHub</a>
+          </div>
+        {% endif %}
+
+        {% if button_db%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/serv.png" alt="project" width="500">
+              <a class="project__link" href="https://github.com/branly211/proyecto-1.git">Link en GitHub</a>
+          </div>
+        {% endif %}
+      </section>
+      <!-- Formulario de contacto -->
+      <section class="main__feedback feedback" id="feedback">
+        <h2 class="feedback__title">Comentarios</h2>
+        <form action="{{url_for('coment_form')}}" method="POST" class="feedback__form form">
+          <label for="email">
+            <input type="email" class="form__input" name="email" id="email" placeholder="E-mail" required>
+          </label>
+          <label for="text">
+            <textarea name="text" class="form__input" id="text" cols="70" rows="10" required placeholder="Comment"></textarea>
+          </label>
+          <button class="form__button" type="submit">SEND</button>
+        </form>
+      </section>
+    </main>
+    <!-- Pie de página con enlaces a redes sociales -->
+    <section class="main__networks networks" id="networks">
+      <h2 class="networks__title">Redes</h2>
+      <form action="/" method="POST">
+        <ul class="networks__list networks-list">
+          <li class="networks-list__network network">
+            <img
+              class="network__img"
+              src="../static/img/facebook.png"
+              alt="facebook"
+              width="120"
+              height="150"
+            />
+            <span class="network__info">Facebook</span>
+            <input class="networks__button" type="submit" name="button_facebook" value="Click">
+          </li>
+          <li class="networks-list__network network">
+            <img
+              class="network__img"
+              src="../static/img/instagram.png"
+              alt="instagram"
+              width="120"
+              height="150"
+            />
+            <span class="network__info">Instagram</span>
+            <input class="network__button" type="submit" name="button_instagram" value="Click">
+          </li>
+          <li class="networks-list__network network">
+            <img
+              class="network__img"
+              src="../static/img/twitterx.png"
+              alt="Twitter"
+              width="150"
+              height="150"
+            />
+            <span class="network__info">Twitter X</span>
+            <input class="network__button" type="submit" name="button_twitter" value="Click">
+          </li>
+        </ul>
+      </form>
+      {% if button_facebook%}
+      <div class="networks__project project" id="project">
+          <img class="project__img" src="../static/img/facebook.png" alt="project" width="200">
+          <a class="project__link" href="https://www.facebook.com/profile.php?id=100089096871239">Link en Facebook</a>
+      </div>
+    {% endif %}
+    
+    {% if button_instagram%}
+      <div class="networks__project project" id="project">
+          <img class="project__img" src="../static/img/instagram.png" alt="project" width="200">
+          <a class="project__link" href="https://www.instagram.com/branly__21/">Link en Instagram</a>
+      </div>
+    {% endif %}
+
+    {% if button_twitter%}
+      <div class="networks__project project" id="project">
+          <img class="project__img" src="../static/img/twitterx.png" alt="project" width="200">
+          <a class="project__link" href="https://x.com/BranlyGmez3">Link en Twitter X</a>
+      </div>
+    {% endif %}
+    <footer>
+
+    </footer>
+  </body>
+</html>
